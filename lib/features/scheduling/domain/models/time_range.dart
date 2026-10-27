@@ -4,7 +4,8 @@ class TimeRange {
   final DateTime end;
 
   TimeRange({required this.start, required this.end})
-      : assert(!end.isBefore(start), 'end cannot be before start: $start -> $end');
+      : assert(
+            !end.isBefore(start), 'end cannot be before start: $start -> $end');
 
   Duration get duration => end.difference(start);
 

@@ -105,7 +105,8 @@ class GoalDetailScreen extends ConsumerWidget {
                   LinearProgressIndicator(
                     value: goal.progress,
                     backgroundColor: colors.border,
-                    valueColor: AlwaysStoppedAnimation<Color>(colors.accentFill),
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(colors.accentFill),
                     minHeight: 8,
                     borderRadius: BorderRadius.circular(4),
                   ),
@@ -115,7 +116,8 @@ class GoalDetailScreen extends ConsumerWidget {
                     children: [
                       Text(
                         'Category',
-                        style: textTheme.bodyMedium?.copyWith(color: colors.textMuted),
+                        style: textTheme.bodyMedium
+                            ?.copyWith(color: colors.textMuted),
                       ),
                       Text(
                         goal.category,
@@ -148,7 +150,8 @@ class GoalDetailScreen extends ConsumerWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: goal.milestones.length,
-                separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.xs),
+                separatorBuilder: (_, __) =>
+                    const SizedBox(height: AppSpacing.xs),
                 itemBuilder: (context, index) {
                   final milestone = goal.milestones[index];
                   return MilestoneRow(

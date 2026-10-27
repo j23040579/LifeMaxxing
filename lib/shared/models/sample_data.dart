@@ -226,8 +226,16 @@ final List<SampleGoal> sampleGoals = [
     paceStatus: PaceStatus.onPace,
     measureType: MeasureType.milestones,
     milestones: [
-      SampleMilestone(id: 'ms-1', title: 'Complete semester coursework', isDone: true, completedDate: _daysFromNow(-30)),
-      SampleMilestone(id: 'ms-2', title: 'Achieve 70%+ in midterms', isDone: true, completedDate: _daysFromNow(-14)),
+      SampleMilestone(
+          id: 'ms-1',
+          title: 'Complete semester coursework',
+          isDone: true,
+          completedDate: _daysFromNow(-30)),
+      SampleMilestone(
+          id: 'ms-2',
+          title: 'Achieve 70%+ in midterms',
+          isDone: true,
+          completedDate: _daysFromNow(-14)),
       const SampleMilestone(id: 'ms-3', title: 'Submit dissertation proposal'),
       const SampleMilestone(id: 'ms-4', title: 'Final exams preparation'),
     ],
@@ -253,7 +261,11 @@ final List<SampleGoal> sampleGoals = [
     paceStatus: PaceStatus.ahead,
     measureType: MeasureType.metric,
     milestones: [
-      SampleMilestone(id: 'ms-5', title: 'Finish "Deep Work"', isDone: true, completedDate: _daysFromNow(-5)),
+      SampleMilestone(
+          id: 'ms-5',
+          title: 'Finish "Deep Work"',
+          isDone: true,
+          completedDate: _daysFromNow(-5)),
       const SampleMilestone(id: 'ms-6', title: 'Finish "Atomic Habits"'),
     ],
   ),

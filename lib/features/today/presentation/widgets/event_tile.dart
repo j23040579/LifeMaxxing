@@ -93,12 +93,14 @@ class EventTile extends StatelessWidget {
                       const SizedBox(height: 2),
                       Row(
                         children: [
-                          Icon(Icons.location_on_outlined, size: 13, color: colors.textMuted),
+                          Icon(Icons.location_on_outlined,
+                              size: 13, color: colors.textMuted),
                           const SizedBox(width: 2),
                           Flexible(
                             child: Text(
                               event.location!,
-                              style: TextStyle(fontSize: 12, color: colors.textMuted),
+                              style: TextStyle(
+                                  fontSize: 12, color: colors.textMuted),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),

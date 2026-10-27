@@ -56,7 +56,8 @@ abstract final class AppTheme {
         titleTextStyle: AppTypography.titleLarge.copyWith(color: c.text),
         iconTheme: IconThemeData(color: c.text, size: 24),
         actionsIconTheme: IconThemeData(color: c.steel, size: 24),
-        systemOverlayStyle: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+        systemOverlayStyle:
+            isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
         surfaceTintColor: Colors.transparent,
       ),
       pageTransitionsTheme: const PageTransitionsTheme(

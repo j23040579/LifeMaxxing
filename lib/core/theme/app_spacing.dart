@@ -101,6 +101,5 @@ abstract final class AppSpacing {
   static const EdgeInsets cardPadding = EdgeInsets.all(lg);
 
   /// Standard screen padding (horizontal 16 + top 8).
-  static const EdgeInsets screenPadding =
-      EdgeInsets.fromLTRB(lg, sm, lg, 0);
+  static const EdgeInsets screenPadding = EdgeInsets.fromLTRB(lg, sm, lg, 0);
 }

@@ -52,7 +52,9 @@ class SchedulePlan {
     // Check block vs block overlaps
     for (int i = 0; i < scheduledBlocks.length; i++) {
       for (int j = i + 1; j < scheduledBlocks.length; j++) {
-        if (scheduledBlocks[i].timeRange.overlaps(scheduledBlocks[j].timeRange)) {
+        if (scheduledBlocks[i]
+            .timeRange
+            .overlaps(scheduledBlocks[j].timeRange)) {
           return false;
         }
       }

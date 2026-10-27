@@ -11,14 +11,17 @@ void main() {
       DateTime(baseDay.year, baseDay.month, baseDay.day, hour, minute);
 
   group('TimeRange unit tests', () {
-    test('Overlaps returns true for intersecting intervals and false for adjacent', () {
+    test(
+        'Overlaps returns true for intersecting intervals and false for adjacent',
+        () {
       final r1 = TimeRange(start: at(9, 0), end: at(10, 30));
       final r2 = TimeRange(start: at(10, 0), end: at(11, 0));
       final r3 = TimeRange(start: at(10, 30), end: at(12, 0)); // Adjacent
 
       expect(r1.overlaps(r2), isTrue);
       expect(r2.overlaps(r1), isTrue);
-      expect(r1.overlaps(r3), isFalse, reason: 'Adjacent intervals must not overlap');
+      expect(r1.overlaps(r3), isFalse,
+          reason: 'Adjacent intervals must not overlap');
     });
 
     test('Subtract splits a time range correctly', () {
@@ -79,7 +82,8 @@ void main() {
       expect(placed.timeRange.overlaps(fixedLecture.timeRange), isFalse);
     });
 
-    test('Higher goal-weight and closer deadline tasks are scheduled first', () {
+    test('Higher goal-weight and closer deadline tasks are scheduled first',
+        () {
       final distantTask = SchedulableTask(
         id: 'task-low',
         title: 'Low Priority Reading',
@@ -113,7 +117,9 @@ void main() {
       expect(plan.scheduledBlocks[1].taskId, equals('task-low'));
     });
 
-    test('Overflow tasks that do not fit are honestly reported without cramming', () {
+    test(
+        'Overflow tasks that do not fit are honestly reported without cramming',
+        () {
       // Fixed event taking most of the afternoon
       final tournament = SchedulableEvent(
         id: 'evt-badminton',
@@ -153,10 +159,15 @@ void main() {
       expect(plan.scheduledBlocks.length, equals(2));
       expect(plan.unfittedTasks.length, equals(1));
       expect(plan.unfittedTasks.first.id, equals('task-3'));
-      expect(plan.explanations.any((e) => e.contains('Cannot fit "Lengthy Paper Review"')), isTrue);
+      expect(
+          plan.explanations
+              .any((e) => e.contains('Cannot fit "Lengthy Paper Review"')),
+          isTrue);
     });
 
-    test('Re-planning after disruption preserves past blocks and replans future blocks', () {
+    test(
+        'Re-planning after disruption preserves past blocks and replans future blocks',
+        () {
       final morningBlock = ScheduledBlock(
         id: 'wb-morning',
         taskId: 'task-done',
@@ -194,10 +205,12 @@ void main() {
 
       expect(replanned.isValid, isTrue);
       // Morning block must be preserved
-      expect(replanned.scheduledBlocks.any((b) => b.id == 'wb-morning'), isTrue);
+      expect(
+          replanned.scheduledBlocks.any((b) => b.id == 'wb-morning'), isTrue);
 
       // New block must start AT OR AFTER disruptionTime (14:00)
-      final newBlock = replanned.scheduledBlocks.firstWhere((b) => b.taskId == 'task-afternoon');
+      final newBlock = replanned.scheduledBlocks
+          .firstWhere((b) => b.taskId == 'task-afternoon');
       expect(newBlock.timeRange.start.isBefore(disruptionTime), isFalse);
       expect(newBlock.timeRange.start, equals(at(14, 0)));
     });

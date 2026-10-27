@@ -88,7 +88,8 @@ class TodayScreen extends ConsumerWidget {
                           Container(
                             decoration: BoxDecoration(
                               color: colors.surface,
-                              borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                              borderRadius:
+                                  BorderRadius.circular(AppSpacing.radiusSm),
                               border: Border.all(color: colors.border),
                             ),
                             padding: const EdgeInsets.all(2),
@@ -135,7 +136,8 @@ class TodayScreen extends ConsumerWidget {
 
                   // Schedule content
                   SliverPadding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 16),
                     sliver: SliverList(
                       delegate: SliverChildListDelegate([
                         // Section: Schedule
@@ -151,7 +153,8 @@ class TodayScreen extends ConsumerWidget {
                             ),
                             const Spacer(),
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 2),
                               decoration: BoxDecoration(
                                 color: colors.surfaceRaised,
                                 borderRadius: BorderRadius.circular(10),

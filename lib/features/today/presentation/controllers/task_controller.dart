@@ -8,7 +8,8 @@ final taskRepositoryProvider = Provider<TaskRepository>((ref) {
 
 final selectedDateProvider = StateProvider<DateTime>((ref) => DateTime.now());
 
-final tasksNotifierProvider = StateNotifierProvider<TaskNotifier, List<TaskModel>>((ref) {
+final tasksNotifierProvider =
+    StateNotifierProvider<TaskNotifier, List<TaskModel>>((ref) {
   final repository = ref.watch(taskRepositoryProvider);
   final selectedDate = ref.watch(selectedDateProvider);
   return TaskNotifier(repository, selectedDate);

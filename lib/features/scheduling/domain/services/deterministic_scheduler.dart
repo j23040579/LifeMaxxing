@@ -34,7 +34,9 @@ class DeterministicScheduler {
         fixedEvents: fixedEvents,
         scheduledBlocks: const [],
         unfittedTasks: tasks.where((t) => !t.isDone).toList(),
-        explanations: ['Planning time is past sleep boundary. All pending tasks moved to overflow.'],
+        explanations: [
+          'Planning time is past sleep boundary. All pending tasks moved to overflow.'
+        ],
         reasonsByTaskId: {},
         remainingFreeSlots: const [],
       );
@@ -68,7 +70,8 @@ class DeterministicScheduler {
 
     // Filter out useless slivers (< 15 min)
     const minUsableDuration = Duration(minutes: 15);
-    freeSlots = freeSlots.where((slot) => slot.duration >= minUsableDuration).toList();
+    freeSlots =
+        freeSlots.where((slot) => slot.duration >= minUsableDuration).toList();
 
     // Sort free slots chronologically
     freeSlots.sort((a, b) => a.start.compareTo(b.start));
@@ -133,14 +136,14 @@ class DeterministicScheduler {
         for (final s in freeSlots) {
           updatedSlots.addAll(s.subtract(blockWithBuffer));
         }
-        freeSlots = updatedSlots
-            .where((s) => s.duration >= minUsableDuration)
-            .toList();
+        freeSlots =
+            updatedSlots.where((s) => s.duration >= minUsableDuration).toList();
         freeSlots.sort((a, b) => a.start.compareTo(b.start));
       } else {
         // Cannot fit
         unfittedTasks.add(task);
-        final totalFreeMin = freeSlots.fold(0, (sum, s) => sum + s.duration.inMinutes);
+        final totalFreeMin =
+            freeSlots.fold(0, (sum, s) => sum + s.duration.inMinutes);
         final reason =
             'Cannot fit "${task.title}" (${task.estimatedDuration.inMinutes} min) into remaining $totalFreeMin min today. Suggested next slot: tomorrow.';
         explanations.add(reason);

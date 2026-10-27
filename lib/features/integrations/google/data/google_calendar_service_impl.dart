@@ -105,7 +105,8 @@ class GoogleCalendarServiceImpl implements GoogleCalendarService {
 
     if (event.start?.dateTime != null) {
       start = event.start!.dateTime!.toLocal();
-      end = event.end?.dateTime?.toLocal() ?? start.add(const Duration(hours: 1));
+      end =
+          event.end?.dateTime?.toLocal() ?? start.add(const Duration(hours: 1));
     } else if (event.start?.date != null) {
       start = event.start!.date!.toLocal();
       end = event.end?.date?.toLocal() ?? start.add(const Duration(days: 1));

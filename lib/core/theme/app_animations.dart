@@ -85,17 +85,13 @@ abstract final class AppAnimations {
     BuildContext context,
     Duration duration,
   ) {
-    return MediaQuery.disableAnimationsOf(context)
-        ? Duration.zero
-        : duration;
+    return MediaQuery.disableAnimationsOf(context) ? Duration.zero : duration;
   }
 
   /// Returns a linear curve (no easing) when the user has requested reduced
   /// motion, otherwise returns [curve].
   static Curve resolvedCurve(BuildContext context, Curve curve) {
-    return MediaQuery.disableAnimationsOf(context)
-        ? Curves.linear
-        : curve;
+    return MediaQuery.disableAnimationsOf(context) ? Curves.linear : curve;
   }
 
   /// Whether the platform has requested reduced motion.

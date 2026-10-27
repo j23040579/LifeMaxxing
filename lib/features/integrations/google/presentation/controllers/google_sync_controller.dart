@@ -127,7 +127,8 @@ class GoogleSyncController extends StateNotifier<GoogleSyncState> {
   }
 
   Future<void> signIn() async {
-    state = state.copyWith(status: GoogleSyncStatus.connecting, errorMessage: null);
+    state =
+        state.copyWith(status: GoogleSyncStatus.connecting, errorMessage: null);
     try {
       final account = await _authService.signIn();
       state = state.copyWith(
@@ -155,7 +156,8 @@ class GoogleSyncController extends StateNotifier<GoogleSyncState> {
   Future<void> syncNow() async {
     if (!state.isConnected) return;
 
-    state = state.copyWith(status: GoogleSyncStatus.syncing, errorMessage: null);
+    state =
+        state.copyWith(status: GoogleSyncStatus.syncing, errorMessage: null);
 
     try {
       final now = DateTime.now();
@@ -181,7 +183,8 @@ class GoogleSyncController extends StateNotifier<GoogleSyncState> {
     } catch (e) {
       state = state.copyWith(
         status: GoogleSyncStatus.error,
-        errorMessage: 'Sync failed: ${e.toString().replaceFirst("Exception: ", "")}',
+        errorMessage:
+            'Sync failed: ${e.toString().replaceFirst("Exception: ", "")}',
       );
     }
   }
@@ -220,7 +223,8 @@ class GoogleSyncController extends StateNotifier<GoogleSyncState> {
         );
       } catch (e) {
         // Log rollback or error
-        state = state.copyWith(errorMessage: 'Failed to sync completion to Google Tasks');
+        state = state.copyWith(
+            errorMessage: 'Failed to sync completion to Google Tasks');
       }
     }
   }

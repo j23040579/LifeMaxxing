@@ -6,7 +6,8 @@ final goalRepositoryProvider = Provider<GoalRepository>((ref) {
   return GoalRepository();
 });
 
-final goalsNotifierProvider = StateNotifierProvider<GoalNotifier, List<GoalModel>>((ref) {
+final goalsNotifierProvider =
+    StateNotifierProvider<GoalNotifier, List<GoalModel>>((ref) {
   final repository = ref.watch(goalRepositoryProvider);
   return GoalNotifier(repository);
 });

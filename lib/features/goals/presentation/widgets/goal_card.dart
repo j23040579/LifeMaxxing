@@ -91,7 +91,6 @@ class _GoalCardState extends State<GoalCard>
               },
             ),
             const SizedBox(width: 16),
-
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,10 +103,8 @@ class _GoalCardState extends State<GoalCard>
                     ),
                   ),
                   const SizedBox(height: 8),
-
                   _PaceChip(paceStatus: goal.paceStatus),
                   const SizedBox(height: 8),
-
                   Text(
                     'How this is calculated',
                     style: textTheme.bodySmall?.copyWith(
@@ -115,7 +112,6 @@ class _GoalCardState extends State<GoalCard>
                     ),
                   ),
                   const SizedBox(height: 8),
-
                   if (goal.why.isNotEmpty)
                     Text(
                       goal.why,
@@ -126,7 +122,6 @@ class _GoalCardState extends State<GoalCard>
                       overflow: TextOverflow.ellipsis,
                     ),
                   const SizedBox(height: 4),
-
                   Text(
                     'Due ${_formatDate(goal.endDate)}',
                     style: textTheme.bodySmall?.copyWith(
@@ -144,8 +139,18 @@ class _GoalCardState extends State<GoalCard>
 
   String _formatDate(DateTime date) {
     const months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
     return '${months[date.month - 1]} ${date.day}, ${date.year}';
   }
@@ -175,9 +180,9 @@ class _PaceChip extends StatelessWidget {
       child: Text(
         label,
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
-          color: color,
-          fontWeight: FontWeight.w600,
-        ),
+              color: color,
+              fontWeight: FontWeight.w600,
+            ),
       ),
     );
   }

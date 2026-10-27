@@ -35,25 +35,31 @@ void main() {
     test('Body text on background meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(dark.text, dark.background);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'Text on dark background ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'Text on dark background ratio is ${ratio.toStringAsFixed(2)}:1');
     });
 
     test('Body text on surface meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(dark.text, dark.surface);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'Text on dark surface ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'Text on dark surface ratio is ${ratio.toStringAsFixed(2)}:1');
     });
 
-    test('Control outline on background meets WCAG AA for UI controls (>= 3.0:1)', () {
+    test(
+        'Control outline on background meets WCAG AA for UI controls (>= 3.0:1)',
+        () {
       final ratio = _contrastRatio(dark.controlOutline, dark.background);
       expect(ratio, greaterThanOrEqualTo(3.0),
-          reason: 'Control outline on background ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'Control outline on background ratio is ${ratio.toStringAsFixed(2)}:1');
     });
 
     test('White text on accent fill meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(dark.onAccent, dark.accentFill);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'onAccent on accentFill ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'onAccent on accentFill ratio is ${ratio.toStringAsFixed(2)}:1');
     });
   });
 
@@ -63,19 +69,22 @@ void main() {
     test('Body text on background meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(light.text, light.background);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'Text on light background ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'Text on light background ratio is ${ratio.toStringAsFixed(2)}:1');
     });
 
     test('Body text on surface meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(light.text, light.surface);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'Text on light surface ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'Text on light surface ratio is ${ratio.toStringAsFixed(2)}:1');
     });
 
     test('White text on accent fill meets WCAG AA (>= 4.5:1)', () {
       final ratio = _contrastRatio(light.onAccent, light.accentFill);
       expect(ratio, greaterThanOrEqualTo(4.5),
-          reason: 'onAccent on accentFill ratio is ${ratio.toStringAsFixed(2)}:1');
+          reason:
+              'onAccent on accentFill ratio is ${ratio.toStringAsFixed(2)}:1');
     });
   });
 }

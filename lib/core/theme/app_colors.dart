@@ -134,8 +134,7 @@ class AppColorsProvider extends InheritedWidget {
 
   /// Non-listening lookup (useful in callbacks).
   static AppColors read(BuildContext context) {
-    final provider =
-        context.getInheritedWidgetOfExactType<AppColorsProvider>();
+    final provider = context.getInheritedWidgetOfExactType<AppColorsProvider>();
     assert(provider != null, 'No AppColorsProvider found in context');
     return provider!.colors;
   }

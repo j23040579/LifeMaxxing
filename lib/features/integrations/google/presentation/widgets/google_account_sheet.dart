@@ -97,7 +97,8 @@ class GoogleAccountSheet extends ConsumerWidget {
                         children: [
                           Text(
                             syncState.isConnected
-                                ? (syncState.account.displayName ?? syncState.account.email)
+                                ? (syncState.account.displayName ??
+                                    syncState.account.email)
                                 : 'Not connected',
                             style: textTheme.bodyLarge?.copyWith(
                               color: colors.text,
@@ -117,7 +118,8 @@ class GoogleAccountSheet extends ConsumerWidget {
                     ),
                     if (syncState.isConnected)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
                           color: colors.success.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(10),
@@ -143,7 +145,8 @@ class GoogleAccountSheet extends ConsumerWidget {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.error_outline, size: 16, color: colors.error),
+                        Icon(Icons.error_outline,
+                            size: 16, color: colors.error),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
@@ -173,13 +176,15 @@ class GoogleAccountSheet extends ConsumerWidget {
           const _PermissionItem(
             icon: Icons.calendar_today_outlined,
             title: 'Google Calendar (view & create events)',
-            subtitle: 'Reads commitments to prevent double-booking. Confirmed work blocks are placed as events.',
+            subtitle:
+                'Reads commitments to prevent double-booking. Confirmed work blocks are placed as events.',
           ),
           const SizedBox(height: 8),
           const _PermissionItem(
             icon: Icons.check_circle_outline,
             title: 'Google Tasks (sync task items)',
-            subtitle: 'Reads tasks and updates completed status. Local completion log preserves progress.',
+            subtitle:
+                'Reads tasks and updates completed status. Local completion log preserves progress.',
           ),
           const SizedBox(height: 24),
 

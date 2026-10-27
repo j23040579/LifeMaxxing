@@ -53,7 +53,8 @@ class SyncBar extends ConsumerWidget {
                     ? Icons.cloud_done_outlined
                     : Icons.cloud_off_outlined,
                 size: 14,
-                color: syncState.isConnected ? colors.success : colors.textMuted,
+                color:
+                    syncState.isConnected ? colors.success : colors.textMuted,
               ),
               const SizedBox(width: AppSpacing.xs),
               Text(
@@ -77,7 +78,8 @@ class SyncBar extends ConsumerWidget {
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
-                  color: syncState.isConnected ? colors.success : colors.warning,
+                  color:
+                      syncState.isConnected ? colors.success : colors.warning,
                 ),
               ),
             ),

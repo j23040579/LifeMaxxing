@@ -62,7 +62,8 @@ class DateStrip extends StatelessWidget {
                     '${date.day}',
                     style: TextStyle(
                       fontSize: 17,
-                      fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                      fontWeight:
+                          isSelected ? FontWeight.w700 : FontWeight.w500,
                       color: isSelected ? colors.text : colors.textMuted,
                     ),
                   ),

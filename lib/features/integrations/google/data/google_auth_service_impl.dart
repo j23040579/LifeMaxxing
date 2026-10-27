@@ -89,7 +89,8 @@ class GoogleAuthServiceImpl implements GoogleAuthService {
   @override
   Future<http.Client?> getAuthenticatedClient() async {
     await _ensureInitialized();
-    final clientAuth = _currentUser?.authorizationClient ?? _googleSignIn.authorizationClient;
+    final clientAuth =
+        _currentUser?.authorizationClient ?? _googleSignIn.authorizationClient;
     final auth = await clientAuth.authorizeScopes(GoogleAuthService.scopes);
     return auth.authClient(scopes: GoogleAuthService.scopes);
   }

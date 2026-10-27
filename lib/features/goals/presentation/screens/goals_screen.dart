@@ -14,12 +14,10 @@ class GoalsScreen extends ConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
     final goals = ref.watch(goalsNotifierProvider);
 
-    final yearlyGoals = goals
-        .where((g) => g.category.toLowerCase() == 'yearly')
-        .toList();
-    final monthlyGoals = goals
-        .where((g) => g.category.toLowerCase() == 'monthly')
-        .toList();
+    final yearlyGoals =
+        goals.where((g) => g.category.toLowerCase() == 'yearly').toList();
+    final monthlyGoals =
+        goals.where((g) => g.category.toLowerCase() == 'monthly').toList();
 
     return Scaffold(
       backgroundColor: colors.background,
@@ -41,7 +39,6 @@ class GoalsScreen extends ConsumerWidget {
               ),
             ),
           ),
-
           if (yearlyGoals.isNotEmpty) ...[
             const _SectionHeader(title: 'Yearly'),
             SliverPadding(
@@ -56,7 +53,6 @@ class GoalsScreen extends ConsumerWidget {
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 24)),
           ],
-
           if (monthlyGoals.isNotEmpty) ...[
             const _SectionHeader(title: 'Monthly'),
             SliverPadding(
@@ -70,7 +66,6 @@ class GoalsScreen extends ConsumerWidget {
               ),
             ),
           ],
-
           const SliverToBoxAdapter(child: SizedBox(height: 100)),
         ],
       ),

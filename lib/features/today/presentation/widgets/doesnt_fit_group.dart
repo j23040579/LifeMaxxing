@@ -31,7 +31,8 @@ class DoesntFitGroup extends StatelessWidget {
           // Header
           Row(
             children: [
-              Icon(Icons.event_busy_outlined, size: 16, color: colors.textMuted),
+              Icon(Icons.event_busy_outlined,
+                  size: 16, color: colors.textMuted),
               const SizedBox(width: AppSpacing.sm),
               Text(
                 "Doesn\u2019t fit today",

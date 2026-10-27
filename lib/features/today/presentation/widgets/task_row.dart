@@ -31,7 +31,8 @@ class TaskRow extends ConsumerWidget {
         ref.read(tasksNotifierProvider.notifier).removeTask(task.id);
       },
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
         leading: Checkbox(
           value: task.isCompleted,
           onChanged: (_) {
@@ -52,7 +53,8 @@ class TaskRow extends ConsumerWidget {
                 '${task.category} • ${task.estimatedMinutes}m',
                 style: theme.textTheme.bodySmall,
               )
-            : Text('${task.estimatedMinutes}m', style: theme.textTheme.bodySmall),
+            : Text('${task.estimatedMinutes}m',
+                style: theme.textTheme.bodySmall),
       ),
     );
   }

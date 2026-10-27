@@ -37,7 +37,8 @@ class WorkBlock extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 64),
       decoration: BoxDecoration(
         color: colors.surface,
-        border: Border.all(color: colors.accentFill.withValues(alpha: 0.35), width: 1.5),
+        border: Border.all(
+            color: colors.accentFill.withValues(alpha: 0.35), width: 1.5),
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
       ),
       clipBehavior: Clip.antiAlias,
@@ -57,7 +58,8 @@ class WorkBlock extends StatelessWidget {
                     // Label + task link
                     Row(
                       children: [
-                        Icon(Icons.check_circle_outline, size: 13, color: colors.success),
+                        Icon(Icons.check_circle_outline,
+                            size: 13, color: colors.success),
                         const SizedBox(width: AppSpacing.xs),
                         Text(
                           'Confirmed',
@@ -68,7 +70,8 @@ class WorkBlock extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Icon(Icons.link_rounded, size: 14, color: colors.textMuted),
+                        Icon(Icons.link_rounded,
+                            size: 14, color: colors.textMuted),
                       ],
                     ),
                     const SizedBox(height: AppSpacing.xs),
@@ -116,7 +119,8 @@ class WorkBlock extends StatelessWidget {
             // Label + task link
             Row(
               children: [
-                Icon(Icons.auto_awesome_outlined, size: 13, color: colors.accentText),
+                Icon(Icons.auto_awesome_outlined,
+                    size: 13, color: colors.accentText),
                 const SizedBox(width: AppSpacing.xs),
                 Text(
                   'Proposed',
@@ -202,7 +206,8 @@ class _ProvenanceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 3),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 3),
       decoration: BoxDecoration(
         color: colors.surfaceRaised,
         borderRadius: BorderRadius.circular(6),
@@ -246,7 +251,8 @@ class _ActionButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: 6),
+        padding:
+            const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: 6),
         decoration: BoxDecoration(
           color: filled ? color : Colors.transparent,
           border: filled ? null : Border.all(color: color),

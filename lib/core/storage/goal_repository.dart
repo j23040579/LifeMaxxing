@@ -25,7 +25,8 @@ class GoalRepository {
                 ))
             .toList(),
         linkedTaskIds: goal.linkedTaskIds,
-        category: goal.measureType == MeasureType.milestones ? 'Yearly' : 'Monthly',
+        category:
+            goal.measureType == MeasureType.milestones ? 'Yearly' : 'Monthly',
       );
     }
   }

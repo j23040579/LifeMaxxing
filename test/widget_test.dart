@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_maxxing/main.dart';
 
 void main() {
-  testWidgets('App smoke test - loads shell with tabs', (WidgetTester tester) async {
+  testWidgets('App smoke test - loads shell with tabs',
+      (WidgetTester tester) async {
     await tester.pumpWidget(
       const ProviderScope(
         child: LifeMaxxingApp(),

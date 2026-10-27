@@ -87,7 +87,8 @@ class MockGoogleCalendarService implements GoogleCalendarService {
   Future<CalendarEventRef> updateEvent(CalendarEventRef event) async => event;
 
   @override
-  Future<void> deleteEvent({required String calendarId, required String eventId}) async {}
+  Future<void> deleteEvent(
+      {required String calendarId, required String eventId}) async {}
 }
 
 class MockGoogleTasksService implements GoogleTasksService {
@@ -114,7 +115,8 @@ class MockGoogleTasksService implements GoogleTasksService {
     DateTime? dueDate,
     String? goalId,
   }) async {
-    return TaskRef(id: 't-new', listId: taskListId, title: title, goalId: goalId);
+    return TaskRef(
+        id: 't-new', listId: taskListId, title: title, goalId: goalId);
   }
 
   @override
@@ -135,7 +137,8 @@ class MockGoogleTasksService implements GoogleTasksService {
   }
 
   @override
-  Future<void> deleteTask({String taskListId = '@default', required String taskId}) async {}
+  Future<void> deleteTask(
+      {String taskListId = '@default', required String taskId}) async {}
 }
 
 void main() {
@@ -182,7 +185,8 @@ void main() {
   });
 
   group('GoogleSyncController tests', () {
-    test('Completing task writes to local completion log immediately', () async {
+    test('Completing task writes to local completion log immediately',
+        () async {
       final auth = MockGoogleAuthService();
       final calendar = MockGoogleCalendarService();
       final tasks = MockGoogleTasksService();
@@ -215,17 +219,19 @@ void main() {
   });
 
   group('OAuth Scope Security tests', () {
-    test('Scopes follow least-privilege principle without sensitive scopes', () {
+    test('Scopes follow least-privilege principle without sensitive scopes',
+        () {
       expect(GoogleAuthService.scopes, contains('email'));
       expect(GoogleAuthService.scopes,
           contains('https://www.googleapis.com/auth/calendar.events'));
-      expect(
-          GoogleAuthService.scopes, contains('https://www.googleapis.com/auth/tasks'));
+      expect(GoogleAuthService.scopes,
+          contains('https://www.googleapis.com/auth/tasks'));
 
       // Ensure no full drive, gmail, or contacts access is requested
       expect(GoogleAuthService.scopes.any((s) => s.contains('gmail')), isFalse);
       expect(GoogleAuthService.scopes.any((s) => s.contains('drive')), isFalse);
-      expect(GoogleAuthService.scopes.any((s) => s.contains('contacts')), isFalse);
+      expect(
+          GoogleAuthService.scopes.any((s) => s.contains('contacts')), isFalse);
     });
   });
 }
