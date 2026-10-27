@@ -5,6 +5,24 @@ import '../../domain/models/knowledge_models.dart';
 import '../../domain/repositories/knowledge_repository.dart';
 import '../../domain/services/knowledge_service.dart';
 
+/// Where the Library is kept right now. Shown to the user so nothing is
+/// silently lost.
+enum LibraryStorageMode {
+  /// Saved in the on-device database. Survives restarts.
+  device,
+
+  /// Kept in memory only (database could not be opened). Resets on restart.
+  memoryOnly,
+}
+
+/// Overridden in `main.dart` with the real value. The default keeps widget
+/// tests working without a database.
+final libraryStorageModeProvider = Provider<LibraryStorageMode>((ref) {
+  return LibraryStorageMode.memoryOnly;
+});
+
+/// Overridden in `main.dart` with `DriftKnowledgeRepository` when the
+/// database opens. The default is in-memory.
 final knowledgeRepositoryProvider = Provider<KnowledgeRepository>((ref) {
   return InMemoryKnowledgeRepository();
 });

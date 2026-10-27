@@ -115,7 +115,13 @@ class KnowledgeService {
       chunkCount: chunks.length,
     );
 
-    await _repository.saveSource(source, chunks);
+    try {
+      await _repository.saveSource(source, chunks);
+    } catch (_) {
+      return const ImportRejected(
+        'Could not save this source on the device. Nothing was imported.',
+      );
+    }
     _index.addChunks(chunks);
     return ImportSucceeded(source);
   }
